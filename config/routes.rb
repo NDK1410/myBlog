@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'home_pages#index'
+  get 'home_pages/about'
+  get 'home_pages/contact'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
+  resources :categories, only:[:show] do
+    resources :posts, only:[:show]
+  end
 end
