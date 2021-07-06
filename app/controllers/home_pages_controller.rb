@@ -1,5 +1,6 @@
 class HomePagesController < ApplicationController
   def index
+    @categories = Category.all
   end
 
   def about
